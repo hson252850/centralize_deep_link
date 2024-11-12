@@ -1,0 +1,248 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name DeeplinkSDK
+import Combine
+import CoreLocation
+@_exported import DeeplinkSDK
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum Environment : Swift.String {
+  case develop
+  case progress
+  case uat
+  case production
+  public var shortKey: Swift.String {
+    get
+  }
+  public var flavor: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class SDKLogger : Logger {
+  override open class var logTag: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class DeepLink : ObjectiveC.NSObject {
+  @objc public var url: Foundation.URL?
+  @objc final public let vanityURL: Foundation.URL?
+  @objc public var parameters: [Swift.String : Any]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class DeeplinkSDK : ObjectiveC.NSObject {
+  @objc public static let sdkVersion: Swift.String
+  @objc public static let shared: DeeplinkSDK
+  @objc deinit
+  @discardableResult
+  @objc public static func openAppDelegateUniversalLink(userActivity: Foundation.NSUserActivity) -> Swift.Bool
+  @available(iOS 13.0, *)
+  @objc public static func openSceneDelegateUniversalLink(scene: UIKit.UIScene, userActivity: Foundation.NSUserActivity)
+  @discardableResult
+  @objc(handleUniversalLink:completion:) public static func handle(universalLink url: Foundation.URL, completion: @escaping DynamicLinkUniversalLinkHandler) -> Swift.Bool
+  @objc(generateDeeplink:onSuccess:OnFailure:) public static func generateDeeplink(_ data: Foundation.Data, onSuccess: OnSuccessHandler? = nil, onFailure: OnFailureHandler? = nil)
+  @objc(extractDeeplink:shortUri:onSuccess:OnFailure:) public static func extractDeeplink(_ data: Foundation.Data, shortUri: Swift.String, onSuccess: OnSuccessHandler? = nil, onFailure: OnFailureHandler? = nil)
+  @objc public var persistLogs: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public func getProjectId() -> Swift.String
+  @objc public func getApiKey() -> Swift.String
+  @objc public func getSecret() -> Swift.String
+}
+extension DeeplinkSDK {
+  public func setLogLevel(to level: Logger.LogLevel)
+  public var currentLogLevel: Logger.LogLevel {
+    get
+  }
+  @objc dynamic public var isLoggingEnabled: Swift.Bool {
+    @objc get
+  }
+}
+public typealias DynamicLinkUniversalLinkHandler = (DeepLink?, (any Swift.Error)?) -> Swift.Void
+public typealias OnSuccessHandler = (_ data: [Swift.AnyHashable : Any]?) -> Swift.Void
+public typealias OnFailureHandler = (_ error: (any Swift.Error)?) -> Swift.Void
+public struct DLMetaData : Swift.Codable {
+  public let pageType: Swift.String
+  public let pageTitle: Swift.String
+  public let pageDescription: Swift.String
+  public init(json: Swift.String?) throws
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public typealias Headers = [Swift.String : Swift.String]
+@objc public enum DeeplinkConfigurationType : Swift.Int {
+  case SDK
+  case APP
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class Configuration : ObjectiveC.NSObject {
+  @objc nonisolated(unsafe) public static let shared: Configuration
+  @objc public var vanityDomains: [Swift.String]
+  @objc public var deeplinkDelegate: (any DeepLinkDelegate)?
+  @objc public var deeplinkConfiguration: DeeplinkConfigurationType
+  @objc public var deelinkURLSessionConfiguration: Foundation.URLSessionConfiguration {
+    @objc get
+    @objc set
+  }
+  public func initialize(projectId: Swift.String, apiKey: Swift.String, secret: Swift.String, environment: Environment = .develop, logLevel: Logger.LogLevel = .info, persistLogs: Swift.Bool = true)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class DependencyConfiguration : ObjectiveC.NSObject {
+  @objc public static let shared: DependencyConfiguration
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class NativeRequestable : Requestable {
+  public var requestTimeOut: Swift.Float
+  public var session: Foundation.URLSession {
+    get
+  }
+  public func request<T>(_ req: NetworkRequest) -> Combine.AnyPublisher<T, NetworkError> where T : Swift.Decodable
+  @objc deinit
+}
+public struct GenerateDLRequest : Swift.Codable {
+  public var type: Swift.String
+  public var metadata: DLMetaData?
+  public var pageUrl: Swift.String
+  public var isForceCreate: Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers open class Logger {
+  open class var logTag: Swift.String {
+    get
+  }
+  open class var moduleTag: Swift.String {
+    get
+  }
+  open class var maxNumberOfFiles: Swift.Int {
+    get
+  }
+  open class var maxFileSize: Swift.Int {
+    get
+  }
+  public enum LogLevel : Swift.Int {
+    case `default`
+    case debug
+    case info
+    case warning
+    case error
+    case none
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  open class func d(_ message: Swift.String)
+  open class func i(_ message: Swift.String)
+  open class func w(_ message: Swift.String)
+  open class func e(_ message: Swift.String)
+  open class func log(_ message: Swift.String)
+  public static func deletePersistedLogs(completion: (() -> Swift.Void)? = nil)
+  public static func didSetLogPersistence(enable: Swift.Bool)
+  @objc deinit
+}
+public protocol Requestable {
+  var requestTimeOut: Swift.Float { get }
+  var session: Foundation.URLSession { get }
+  func request<T>(_ req: NetworkRequest) -> Combine.AnyPublisher<T, NetworkError> where T : Swift.Decodable
+}
+@objc public protocol DeepLinkDelegate {
+  @objc func openDeepLink(deepLink: DeepLink, fallbackURL: Foundation.URL?)
+  @available(iOS 13.0, *)
+  @objc func openDeepLink(deepLink: DeepLink, fallbackURL: Foundation.URL?, scene: UIKit.UIScene)
+}
+extension Foundation.Data {
+  public var bytes: [Swift.UInt8] {
+    get
+  }
+}
+public struct NetworkRequest {
+  public init(url: Swift.String, headers: [Swift.String : Swift.String]? = nil, reqBody: (any Swift.Encodable)? = nil, reqTimeout: Swift.Float? = nil, httpMethod: HTTPMethod)
+  public init(url: Swift.String, headers: [Swift.String : Swift.String]? = nil, reqBody: Foundation.Data? = nil, reqTimeout: Swift.Float? = nil, httpMethod: HTTPMethod)
+}
+public enum HTTPMethod : Swift.String {
+  case GET
+  case POST
+  case PUT
+  case DELETE
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum NetworkError : Swift.Error, Swift.Equatable {
+  case badURL(_: Swift.String)
+  case apiError(code: Swift.Int, error: Swift.String)
+  case invalidJSON(_: Swift.String)
+  case unauthorized(code: Swift.Int, error: Swift.String)
+  case badRequest(code: Swift.Int, error: Swift.String)
+  case internalError(code: Swift.Int, error: Swift.String)
+  case serverError(code: Swift.Int, error: Swift.String)
+  case noResponse(_: Swift.String)
+  case unableToParseData(_: Swift.String)
+  case unknown(code: Swift.Int, error: Swift.String)
+  public static func == (a: NetworkError, b: NetworkError) -> Swift.Bool
+}
+extension Foundation.URL {
+  public var queryParameters: [Swift.String : Swift.String]? {
+    get
+  }
+}
+@propertyWrapper public struct DefaultIfMissing<T> : Swift.Codable where T : DefaultValueProvider, T : Swift.Decodable, T : Swift.Encodable {
+  public let wrappedValue: T
+  public init(from decoder: any Swift.Decoder) throws
+  public init(_ wrappedValue: T?)
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public protocol DefaultValueProvider {
+  static var defaultValue: Self { get }
+}
+extension Swift.Bool : DefaultValueProvider {
+  public static var defaultValue: Swift.Bool {
+    get
+  }
+}
+extension Swift.String : DefaultValueProvider {
+  public static var defaultValue: Swift.String {
+    get
+  }
+}
+extension Swift.Int : DefaultValueProvider {
+  public static var defaultValue: Swift.Int {
+    get
+  }
+}
+extension Swift.Double : DefaultValueProvider {
+  public static var defaultValue: Swift.Double {
+    get
+  }
+}
+extension Environment : Swift.Equatable {}
+extension Environment : Swift.Hashable {}
+extension Environment : Swift.RawRepresentable {}
+extension DeeplinkConfigurationType : Swift.Equatable {}
+extension DeeplinkConfigurationType : Swift.Hashable {}
+extension DeeplinkConfigurationType : Swift.RawRepresentable {}
+extension Logger.LogLevel : Swift.Equatable {}
+extension Logger.LogLevel : Swift.Hashable {}
+extension Logger.LogLevel : Swift.RawRepresentable {}
+extension HTTPMethod : Swift.Equatable {}
+extension HTTPMethod : Swift.Hashable {}
+extension HTTPMethod : Swift.RawRepresentable {}
