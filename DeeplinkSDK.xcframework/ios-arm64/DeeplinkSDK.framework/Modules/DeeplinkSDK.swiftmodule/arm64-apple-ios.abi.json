@@ -2558,6 +2558,29 @@
       },
       {
         "kind": "Var",
+        "name": "kDLParameterData",
+        "printedName": "kDLParameterData",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:11DeeplinkSDK16kDLParameterDataSSvp",
+        "mangledName": "$s11DeeplinkSDK16kDLParameterDataSSvp",
+        "moduleName": "DeeplinkSDK",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage"
+        ],
+        "isLet": true,
+        "hasStorage": true
+      },
+      {
+        "kind": "Var",
         "name": "kDLParameterMetadata",
         "printedName": "kDLParameterMetadata",
         "children": [
@@ -20233,112 +20256,119 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 254,
+      "offset": 250,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
+      "kind": "StringLiteral",
+      "offset": 284,
       "length": 10,
       "value": "\"metadata\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 301,
+      "offset": 331,
       "length": 5,
       "value": "\"imv\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 334,
+      "offset": 364,
       "length": 14,
       "value": "\"utm_campaign\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 375,
+      "offset": 405,
       "length": 13,
       "value": "\"utm_content\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 414,
+      "offset": 444,
       "length": 12,
       "value": "\"utm_medium\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 452,
+      "offset": 482,
       "length": 12,
       "value": "\"utm_source\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 488,
+      "offset": 518,
       "length": 10,
       "value": "\"utm_term\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "Array",
-      "offset": 532,
+      "offset": 562,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 561,
+      "offset": 591,
       "length": 25,
       "value": "\"com.legato.dynamicLinks\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 618,
+      "offset": 648,
       "length": 10,
       "value": "\"cp_url=1\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 869,
+      "offset": 899,
       "length": 33,
       "value": "\"USER_DEFAULTS_KEY_FOR_DEVICE_ID\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1059,
+      "offset": 1089,
       "length": 32,
       "value": "\"USER_DEFAULTS_KEY_OPEN_URL_KEY\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1291,
+      "offset": 1321,
       "length": 45,
       "value": "\"USER_DEFAULTS_KEY_READ_DL_AFTER_INSTALL_KEY\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1393,
+      "offset": 1423,
       "length": 33,
       "value": "\"DeeplinkSDKBackgroundURLSession\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1463,
+      "offset": 1493,
       "length": 24,
       "value": "\"legato.co\/[a-zA-Z0-9]+\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1517,
+      "offset": 1547,
       "length": 15,
       "value": "\"[DeepLinkSDK]\""
     },
@@ -20387,7 +20417,7 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+InternalAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 16595,
+      "offset": 16591,
       "length": 5,
       "value": "false"
     },
@@ -20417,7 +20447,7 @@
       "kind": "StringLiteral",
       "offset": 456,
       "length": 7,
-      "value": "\"0.0.1\""
+      "value": "\"0.0.2\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Configuration.swift",
