@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "centralize_deep_link"
   s.module_name  = "DeeplinkSDK"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Centralize deep link"
 
   s.description  = <<-DESC
