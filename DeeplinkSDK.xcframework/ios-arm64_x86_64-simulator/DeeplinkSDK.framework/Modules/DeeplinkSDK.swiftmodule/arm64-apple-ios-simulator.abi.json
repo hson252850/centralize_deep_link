@@ -432,8 +432,8 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "SDKLogger",
-        "printedName": "SDKLogger",
+        "name": "DeeplinkSDKLogger",
+        "printedName": "DeeplinkSDKLogger",
         "children": [
           {
             "kind": "Var",
@@ -448,8 +448,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11DeeplinkSDK9SDKLoggerC6logTagSSvpZ",
-            "mangledName": "$s11DeeplinkSDK9SDKLoggerC6logTagSSvpZ",
+            "usr": "s:11DeeplinkSDK0A9SDKLoggerC6logTagSSvpZ",
+            "mangledName": "$s11DeeplinkSDK0A9SDKLoggerC6logTagSSvpZ",
             "moduleName": "DeeplinkSDK",
             "static": true,
             "overriding": true,
@@ -472,8 +472,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11DeeplinkSDK9SDKLoggerC6logTagSSvgZ",
-                "mangledName": "$s11DeeplinkSDK9SDKLoggerC6logTagSSvgZ",
+                "usr": "s:11DeeplinkSDK0A9SDKLoggerC6logTagSSvgZ",
+                "mangledName": "$s11DeeplinkSDK0A9SDKLoggerC6logTagSSvgZ",
                 "moduleName": "DeeplinkSDK",
                 "static": true,
                 "overriding": true,
@@ -489,14 +489,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "SDKLogger",
-                "printedName": "DeeplinkSDK.SDKLogger",
-                "usr": "s:11DeeplinkSDK9SDKLoggerC"
+                "name": "DeeplinkSDKLogger",
+                "printedName": "DeeplinkSDK.DeeplinkSDKLogger",
+                "usr": "s:11DeeplinkSDK0A9SDKLoggerC"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11DeeplinkSDK9SDKLoggerCACycfc",
-            "mangledName": "$s11DeeplinkSDK9SDKLoggerCACycfc",
+            "usr": "s:11DeeplinkSDK0A9SDKLoggerCACycfc",
+            "mangledName": "$s11DeeplinkSDK0A9SDKLoggerCACycfc",
             "moduleName": "DeeplinkSDK",
             "overriding": true,
             "implicit": true,
@@ -507,8 +507,8 @@
           }
         ],
         "declKind": "Class",
-        "usr": "s:11DeeplinkSDK9SDKLoggerC",
-        "mangledName": "$s11DeeplinkSDK9SDKLoggerC",
+        "usr": "s:11DeeplinkSDK0A9SDKLoggerC",
+        "mangledName": "$s11DeeplinkSDK0A9SDKLoggerC",
         "moduleName": "DeeplinkSDK",
         "isOpen": true,
         "declAttributes": [
@@ -3035,6 +3035,55 @@
                 "declKind": "Accessor",
                 "usr": "s:11DeeplinkSDK9ConstantsV040USER_DEFAULTS_KEY_READ_DL_AFTER_INSTALL_F0SSvgZ",
                 "mangledName": "$s11DeeplinkSDK9ConstantsV040USER_DEFAULTS_KEY_READ_DL_AFTER_INSTALL_F0SSvgZ",
+                "moduleName": "DeeplinkSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "USER_DEFAULTS_KEY_FOR_FIRST_LAUNCH",
+            "printedName": "USER_DEFAULTS_KEY_FOR_FIRST_LAUNCH",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11DeeplinkSDK9ConstantsV34USER_DEFAULTS_KEY_FOR_FIRST_LAUNCHSSvpZ",
+            "mangledName": "$s11DeeplinkSDK9ConstantsV34USER_DEFAULTS_KEY_FOR_FIRST_LAUNCHSSvpZ",
+            "moduleName": "DeeplinkSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11DeeplinkSDK9ConstantsV34USER_DEFAULTS_KEY_FOR_FIRST_LAUNCHSSvgZ",
+                "mangledName": "$s11DeeplinkSDK9ConstantsV34USER_DEFAULTS_KEY_FOR_FIRST_LAUNCHSSvgZ",
                 "moduleName": "DeeplinkSDK",
                 "static": true,
                 "implicit": true,
@@ -11931,6 +11980,225 @@
           "AccessControl"
         ],
         "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DeeplinkSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DLFirstLaunch",
+        "printedName": "DLFirstLaunch",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "wasLaunchedBefore",
+            "printedName": "wasLaunchedBefore",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11DeeplinkSDK13DLFirstLaunchC17wasLaunchedBeforeSbvp",
+            "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC17wasLaunchedBeforeSbvp",
+            "moduleName": "DeeplinkSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11DeeplinkSDK13DLFirstLaunchC17wasLaunchedBeforeSbvg",
+                "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC17wasLaunchedBeforeSbvg",
+                "moduleName": "DeeplinkSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent",
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isFirstLaunch",
+            "printedName": "isFirstLaunch",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11DeeplinkSDK13DLFirstLaunchC07isFirstD0Sbvp",
+            "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC07isFirstD0Sbvp",
+            "moduleName": "DeeplinkSDK",
+            "isOpen": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11DeeplinkSDK13DLFirstLaunchC07isFirstD0Sbvg",
+                "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC07isFirstD0Sbvg",
+                "moduleName": "DeeplinkSDK",
+                "isOpen": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(getWasLaunchedBefore:setWasLaunchedBefore:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DLFirstLaunch",
+                "printedName": "DeeplinkSDK.DLFirstLaunch",
+                "usr": "s:11DeeplinkSDK13DLFirstLaunchC"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> Swift.Bool",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11DeeplinkSDK13DLFirstLaunchC20getWasLaunchedBefore03setfgH0ACSbyXE_ySbXEtcfc",
+            "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC20getWasLaunchedBefore03setfgH0ACSbyXE_ySbXEtcfc",
+            "moduleName": "DeeplinkSDK",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(userDefaults:key:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DLFirstLaunch",
+                "printedName": "DeeplinkSDK.DLFirstLaunch",
+                "usr": "s:11DeeplinkSDK13DLFirstLaunchC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserDefaults",
+                "printedName": "Foundation.UserDefaults",
+                "usr": "c:objc(cs)NSUserDefaults"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11DeeplinkSDK13DLFirstLaunchC12userDefaults3keyACSo06NSUserF0C_SStcfc",
+            "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC12userDefaults3keyACSo06NSUserF0C_SStcfc",
+            "moduleName": "DeeplinkSDK",
+            "declAttributes": [
+              "Convenience"
+            ],
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11DeeplinkSDK13DLFirstLaunchC",
+        "mangledName": "$s11DeeplinkSDK13DLFirstLaunchC",
+        "moduleName": "DeeplinkSDK",
+        "isOpen": true,
         "conformances": [
           {
             "kind": "Conformance",
@@ -21100,7 +21368,7 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK.swift",
       "kind": "BooleanLiteral",
-      "offset": 4127,
+      "offset": 4135,
       "length": 5,
       "value": "false"
     },
@@ -21226,21 +21494,28 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1423,
+      "offset": 1424,
+      "length": 36,
+      "value": "\"USER_DEFAULTS_KEY_FOR_FIRST_LAUNCH\""
+    },
+    {
+      "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
+      "kind": "StringLiteral",
+      "offset": 1517,
       "length": 33,
       "value": "\"DeeplinkSDKBackgroundURLSession\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1493,
+      "offset": 1587,
       "length": 24,
       "value": "\"legato.co\/[a-zA-Z0-9]+\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1547,
+      "offset": 1641,
       "length": 15,
       "value": "\"[DeepLinkSDK]\""
     },
@@ -21268,7 +21543,7 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+InternalAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 16591,
+      "offset": 16599,
       "length": 5,
       "value": "false"
     },
@@ -21284,7 +21559,7 @@
       "kind": "StringLiteral",
       "offset": 456,
       "length": 7,
-      "value": "\"0.0.3\""
+      "value": "\"0.0.4\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Configuration.swift",
@@ -21296,21 +21571,21 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Configuration.swift",
       "kind": "StringLiteral",
-      "offset": 837,
+      "offset": 845,
       "length": 49,
       "value": "\"SDK uses a passed URLSessionConfiguration setup\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Configuration.swift",
       "kind": "BooleanLiteral",
-      "offset": 1128,
+      "offset": 1136,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Configuration.swift",
       "kind": "BooleanLiteral",
-      "offset": 1891,
+      "offset": 1907,
       "length": 5,
       "value": "false"
     },
@@ -21527,7 +21802,7 @@
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/Swizzler\/DeeplinkSwizzler.swift",
       "kind": "Dictionary",
-      "offset": 5480,
+      "offset": 5504,
       "length": 3,
       "value": "[]"
     },
