@@ -277,7 +277,9 @@
             "usr": "s:11DeeplinkSDK11EnvironmentO8rawValueACSgSS_tcfc",
             "mangledName": "$s11DeeplinkSDK11EnvironmentO8rawValueACSgSS_tcfc",
             "moduleName": "DeeplinkSDK",
-            "implicit": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
             "init_kind": "Designated"
           },
           {
@@ -21559,7 +21561,7 @@
       "kind": "StringLiteral",
       "offset": 456,
       "length": 7,
-      "value": "\"0.0.4\""
+      "value": "\"0.0.5\""
     },
     {
       "filePath": "\/Users\/sonphan\/Gao\/legato\/Deeplinks\/deeplinks_sdk\/swift-sdk\/DeeplinkSDK+Configuration.swift",
