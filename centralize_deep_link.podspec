@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "centralize_deep_link"
   s.module_name  = "DeeplinkSDK"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "Centralize deep link"
 
   s.description  = <<-DESC
@@ -16,6 +16,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/hson252850/centralize_deep_link.git", :tag => s.version }
   s.preserve_paths = 'DeeplinkSDK.xcframework'
   s.vendored_frameworks = ['DeeplinkSDK.xcframework']
-
   s.swift_version = '5.0'
 end

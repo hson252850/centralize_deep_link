@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name DeeplinkSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name DeeplinkSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import Combine
 import CoreLocation
 @_exported import DeeplinkSDK
@@ -108,6 +108,7 @@ public typealias Headers = [Swift.String : Swift.String]
   public func initialize(projectId: Swift.String, apiKey: Swift.String, secret: Swift.String, environment: DeeplinkSDK.Environment = .develop, logLevel: DeeplinkSDK.Logger.LogLevel = .info, persistLogs: Swift.Bool = true)
   @objc deinit
 }
+public func dlQueryItems(from dictionary: [Swift.String : Any]?) -> [Foundation.URLQueryItem]
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class DependencyConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: DeeplinkSDK.DependencyConfiguration
   @objc deinit
@@ -172,6 +173,113 @@ public protocol Requestable {
   @objc func openDeepLink(deepLink: DeeplinkSDK.DeepLink, fallbackURL: Foundation.URL?)
   @available(iOS 13.0, *)
   @objc func openDeepLink(deepLink: DeeplinkSDK.DeepLink, fallbackURL: Foundation.URL?, scene: UIKit.UIScene)
+}
+public protocol DeepLinkParameters {
+  var queryItems: [Foundation.URLQueryItem] { get }
+}
+public struct DeepLinkAnalyticsParameters : DeeplinkSDK.DeepLinkParameters {
+  public var source: Swift.String?
+  public var medium: Swift.String?
+  public var campaign: Swift.String?
+  public var term: Swift.String?
+  public var content: Swift.String?
+  public init(source: Swift.String? = nil, medium: Swift.String? = nil, campaign: Swift.String? = nil, term: Swift.String? = nil, content: Swift.String? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkIOSParameters : DeeplinkSDK.DeepLinkParameters {
+  public var bundleID: Swift.String
+  public var appStoreID: Swift.String?
+  public var fallbackURL: Foundation.URL?
+  public var customScheme: Swift.String?
+  public var minimumAppVersion: Swift.String?
+  public var iPadBundleID: Swift.String?
+  public var iPadFallbackURL: Foundation.URL?
+  public init(bundleID: Swift.String, appStoreID: Swift.String? = nil, fallbackURL: Foundation.URL? = nil, customScheme: Swift.String? = nil, minimumAppVersion: Swift.String? = nil, iPadBundleID: Swift.String? = nil, iPadFallbackURL: Foundation.URL? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkItunesConnectAnalyticsParameters : DeeplinkSDK.DeepLinkParameters {
+  public var affiliateToken: Swift.String?
+  public var campaignToken: Swift.String?
+  public var providerToken: Swift.String?
+  public init(affiliateToken: Swift.String? = nil, campaignToken: Swift.String? = nil, providerToken: Swift.String? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkAndroidParameters : DeeplinkSDK.DeepLinkParameters {
+  public var packageName: Swift.String
+  public var minimumVersion: Swift.Int?
+  public var fallbackURL: Foundation.URL?
+  public init(packageName: Swift.String, minimumVersion: Swift.Int? = nil, fallbackURL: Foundation.URL? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkSocialMetaTagParameters : DeeplinkSDK.DeepLinkParameters {
+  public var title: Swift.String?
+  public var descriptionText: Swift.String?
+  public var imageURL: Foundation.URL?
+  public init(title: Swift.String? = nil, descriptionText: Swift.String? = nil, imageURL: Foundation.URL? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkNavigationInfoParameters : DeeplinkSDK.DeepLinkParameters {
+  public var isForcedRedirectEnabled: Swift.Bool
+  public init(isForcedRedirectEnabled: Swift.Bool = false)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkOtherPlatformParameters : DeeplinkSDK.DeepLinkParameters {
+  public var fallbackUrl: Foundation.URL?
+  public init(fallbackUrl: Foundation.URL? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public struct DeepLinkMetaDataPlatformParameters : DeeplinkSDK.DeepLinkParameters {
+  public var data: [Swift.String : Any]?
+  public init(data: [Swift.String : Any]? = nil)
+  public var queryItems: [Foundation.URLQueryItem] {
+    get
+  }
+}
+public enum ShortDeepLinkPathLength : Swift.String {
+  case `default`
+  case short
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DeepLinkComponentsOptions {
+  public var pathLength: DeeplinkSDK.ShortDeepLinkPathLength
+  public init(pathLength: DeeplinkSDK.ShortDeepLinkPathLength = .short)
+}
+public struct DeepLinkComponents {
+  public let link: Foundation.URL
+  public let domainURIPrefix: Foundation.URL
+  public var analyticsParameters: DeeplinkSDK.DeepLinkAnalyticsParameters?
+  public var socialMetaTagParameters: DeeplinkSDK.DeepLinkSocialMetaTagParameters?
+  public var iOSParameters: DeeplinkSDK.DeepLinkIOSParameters?
+  public var iTunesConnectAnalyticsParameters: DeeplinkSDK.DeepLinkItunesConnectAnalyticsParameters?
+  public var androidParameters: DeeplinkSDK.DeepLinkAndroidParameters?
+  public var navigationInfoParameters: DeeplinkSDK.DeepLinkNavigationInfoParameters?
+  public var otherPlatformParameters: DeeplinkSDK.DeepLinkOtherPlatformParameters?
+  public var options: DeeplinkSDK.DeepLinkComponentsOptions
+  public var metadata: DeeplinkSDK.DeepLinkMetaDataPlatformParameters?
+  public init?(link: Foundation.URL, domainURIPrefix: Swift.String)
+  public var url: Foundation.URL? {
+    get
+  }
+  public static func shortenURL(_ longURL: Foundation.URL, options: DeeplinkSDK.DeepLinkComponentsOptions = .init(), completion: @escaping (Foundation.URL?, (any Swift.Error)?) -> Swift.Void)
+  public func shorten() throws -> Foundation.URL?
 }
 extension Foundation.Data {
   public var bytes: [Swift.UInt8] {
@@ -250,6 +358,9 @@ extension DeeplinkSDK.DeeplinkConfigurationType : Swift.RawRepresentable {}
 extension DeeplinkSDK.Logger.LogLevel : Swift.Equatable {}
 extension DeeplinkSDK.Logger.LogLevel : Swift.Hashable {}
 extension DeeplinkSDK.Logger.LogLevel : Swift.RawRepresentable {}
+extension DeeplinkSDK.ShortDeepLinkPathLength : Swift.Equatable {}
+extension DeeplinkSDK.ShortDeepLinkPathLength : Swift.Hashable {}
+extension DeeplinkSDK.ShortDeepLinkPathLength : Swift.RawRepresentable {}
 extension DeeplinkSDK.HTTPMethod : Swift.Equatable {}
 extension DeeplinkSDK.HTTPMethod : Swift.Hashable {}
 extension DeeplinkSDK.HTTPMethod : Swift.RawRepresentable {}
